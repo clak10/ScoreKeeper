@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Score Keeper</string>
+    <string name="team_a">New England Patriots</string>
+    <string name="points_text">Points</string>
+    <string name="passing_text">Passing</string>
+    <string name="rushing_text">Rushing</string>
+    <string name="team_b">Atlanta Falcons</string>
+    <string name="zero">0</string>
+    <string name="reset_button_text">Reset</string>
 </resources>

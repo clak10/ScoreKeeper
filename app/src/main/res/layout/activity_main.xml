@@ -19,30 +19,28 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:layout_centerInParent="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="Georgia"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:text="New England Patriots"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:textSize="17sp" />
+                    android:text="@string/team_a"
+                    android:textColor="@color/main_text"
+                    android:textSize="@dimen/teams_text_size"
+                    android:textStyle="bold" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="2"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="2"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -56,12 +54,11 @@
                     <TextView
                         android:id="@+id/Team_A_Score"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:fontFamily="Georgia"
-                        android:text="0"
-                        android:textColor="@android:color/black"
-                        android:textSize="50dp" />
+                        android:layout_weight="1"
+                        android:text="@string/zero"
+                        android:textColor="@color/main_text"
+                        android:textSize="@dimen/main_score_size" />
 
                 </LinearLayout>
 
@@ -69,94 +66,91 @@
                     android:id="@+id/Team_A_Pass"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="Georgia"
-                    android:text="0"
-                    android:textColor="@android:color/black"
-                    android:textSize="25sp" />
+                    android:layout_weight="1"
+                    android:text="@string/zero"
+                    android:textColor="@color/main_text"
+                    android:textSize="@dimen/sub_score_size" />
 
                 <TextView
                     android:id="@+id/Team_A_Rush"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textColor="@android:color/black"
-                    android:fontFamily="Georgia"
-                    android:text="0"
-                    android:textSize="25sp" />
+                    android:layout_weight="1"
+                    android:text="@string/zero"
+                    android:textColor="@color/main_text"
+                    android:textSize="@dimen/sub_score_size" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="5"
+                    android:padding="25dp"
                     android:orientation="vertical">
 
                     <Button
-                        android:layout_width="150dp"
+                        android:id="@+id/p_team_a"
+                        android:layout_width="@dimen/button_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Points"
-                        android:onClick="incrScoreTeamA"
-                        android:textColor="@android:color/white"
-                        android:layout_marginLeft="10dp"/>
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/points_text"
+                        android:textColor="@color/app_white" />
 
                     <Button
-                        android:layout_width="150dp"
+                        android:id="@+id/ps_team_a"
+                        android:layout_width="@dimen/button_width"
                         android:layout_height="wrap_content"
-                        android:onClick="incrPassTeamA"
-                        android:layout_marginTop="10dp"
-                        android:text="Passing"
-                        android:textColor="@android:color/white"
-                        android:layout_marginLeft="10dp" />
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/passing_text"
+                        android:textColor="@color/app_white" />
 
                     <Button
-                        android:layout_width="150dp"
+                        android:id="@+id/r_team_a"
+                        android:layout_width="@dimen/button_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Rushing"
-                        android:onClick="incrRushTeamA"
-                        android:textColor="@android:color/white"
-                        android:layout_marginLeft="10dp" />
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/rushing_text"
+                        android:textColor="@color/app_white" />
                 </LinearLayout>
             </LinearLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:background="#DCDCDC"></View>
+                android:background="@color/line" />
 
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:layout_centerInParent="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="Georgia"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Atlanta Falcons"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"
-                    android:textSize="17sp" />
+                    android:text="@string/team_b"
+                    android:textColor="@color/main_text"
+                    android:textSize="@dimen/teams_text_size"
+                    android:textStyle="bold" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="2"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="2"
                     android:orientation="horizontal">
 
                     <TextView
@@ -164,20 +158,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="Georgia"
                         android:gravity="right"
-                        android:text="0"
+                        android:text="@string/zero"
                         android:textColor="@android:color/black"
                         android:textSize="50sp" />
 
                     <ImageView
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="20dp"
-                        android:paddingRight="10dp"
-                        android:paddingLeft="10dp"
+                        android:layout_weight="1"
                         android:src="@drawable/atlanta_falcons1" />
                 </LinearLayout>
 
@@ -185,58 +176,57 @@
                     android:id="@+id/Team_B_Pass"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="Georgia"
-                    android:text="0"
-                    android:textColor="@android:color/black"
-                    android:textSize="25sp" />
+                    android:layout_weight="1"
+                    android:text="@string/zero"
+                    android:textColor="@color/main_text"
+                    android:textSize="@dimen/sub_score_size" />
 
                 <TextView
                     android:id="@+id/Team_B_Rush"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:textColor="@android:color/black"
-                    android:fontFamily="Georgia"
-                    android:text="0"
-                    android:textSize="25sp" />
+                    android:layout_weight="1"
+                    android:text="@string/zero"
+                    android:textColor="@color/main_text"
+                    android:textSize="@dimen/sub_score_size" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="5"
+                    android:padding="25dp"
                     android:orientation="vertical">
 
                     <Button
-                        android:layout_width="150dp"
+                        android:id="@+id/p_team_b"
+                        android:layout_width="@dimen/button_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Points"
-                        android:onClick="incrScoreTeamB"
-                        android:textColor="@android:color/white"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/points_text"
+                        android:textColor="@android:color/white" />
 
                     <Button
-                        android:layout_width="150dp"
+                        android:id="@+id/ps_team_b"
+                        android:layout_width="@dimen/button_width"
                         android:layout_height="wrap_content"
-                        android:onClick="incrPassTeamB"
-                        android:layout_marginTop="10dp"
-                        android:text="Passing"
-                        android:textColor="@android:color/white"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/passing_text"
+                        android:textColor="@android:color/white" />
 
                     <Button
-                        android:layout_width="150dp"
+                        android:id="@+id/r_team_b"
+                        android:layout_width="@dimen/button_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Rushing"
-                        android:onClick="incrRushTeamB"
-                        android:textColor="@android:color/white"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/rushing_text"
+                        android:textColor="@android:color/white" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -245,17 +235,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <Button
-                android:layout_width="150dp"
+                android:id="@+id/reset"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:onClick="reset"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:text="Reset"
+                android:layout_marginTop="12dp"
+                android:text="@string/reset_button_text"
                 android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
@@ -267,13 +256,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="162dp"
-        android:background="@android:color/white"
-        android:fontFamily="Georgia"
         android:gravity="center"
         android:padding="5dp"
-        android:text="Passing"
-        android:textColor="#252954"
-        android:textSize="11dp"
+        android:background="@color/app_white"
+        android:text="@string/passing_text"
+        android:textColor="@color/sub_score_header_color"
+        android:textSize="@dimen/sub_score_header"
         android:textStyle="bold"
         tools:ignore="NotSibling" />
 
@@ -283,13 +271,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="211dp"
-        android:background="@android:color/white"
-        android:fontFamily="George"
         android:gravity="center"
         android:padding="5dp"
-        android:text="Rushing"
-        android:textColor="#252954"
-        android:textSize="11dp"
+        android:background="@color/app_white"
+        android:text="@string/rushing_text"
+        android:textColor="@color/sub_score_header_color"
+        android:textSize="@dimen/sub_score_header"
         android:textStyle="bold" />
 
 </RelativeLayout>

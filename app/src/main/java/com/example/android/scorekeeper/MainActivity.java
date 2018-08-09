@@ -1,9 +1,11 @@
 package com.example.android.scorekeeper;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +20,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final Button teamAPoint = findViewById(R.id.p_team_a);
+        teamAPoint.setOnClickListener(e -> onClickButton(teamAPoint.getId()));
+        final Button teamBPoint = findViewById(R.id.p_team_b);
+        teamBPoint.setOnClickListener(e -> onClickButton(teamBPoint.getId()));
+        final Button teamAPass = findViewById(R.id.ps_team_a);
+        teamAPass.setOnClickListener(e -> onClickButton(teamAPass.getId()));
+        final Button teamBPass = findViewById(R.id.ps_team_b);
+        teamBPass.setOnClickListener(e -> onClickButton(teamBPass.getId()));
+        final Button teamARush = findViewById(R.id.r_team_a);
+        teamARush.setOnClickListener(e -> onClickButton(teamARush.getId()));
+        final Button teamBRush = findViewById(R.id.r_team_b);
+        teamBRush.setOnClickListener(e -> onClickButton(teamBRush.getId()));
+        final Button reset = findViewById(R.id.reset);
+        reset.setOnClickListener(e -> onClickButton(reset.getId()));
+
     }
 
     /**
@@ -30,92 +48,105 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Display a given value to the given text view.
-     * @param textView
-     * @param value
-     * #IO18ExtendedPh
-     * #flutterextended
+     * @param textView is the Text view in focus
+     * @param value  the score to be displayed
      *
      */
     protected void display(TextView textView, int value){
-        textView.setText(""+value);
+        textView.setText("" + value);
     }
 
     /**
-     * Increase the score for Team A by 1 points and display to the appropriate text view.
+     * Increase the score displayed on each textView when the corresponding button is pressed.
+     *
+     * @param id Resource Id of the button making the call
      */
-    public void incrScoreTeamA(View view){
-        TextView t = findViewById(R.id.Team_A_Score);
-        scoreTeamA = addOne(scoreTeamA);
-        display(t, scoreTeamA);
-    }
 
-    /**
-     * Increase the score for Team B by 1 points and display to the appropriate text view.
-     */
-    public void incrScoreTeamB(View view){
-        TextView t = findViewById(R.id.Team_B_Score);
-        scoreTeamB = addOne(scoreTeamB);
-        display(t, scoreTeamB);
-    }
+    public void onClickButton(@IdRes int id) {
+        TextView t;
+        TextView u;
 
-    /**
-     * Increase the passing for Team A by 1 points and display to the appropriate text view.
-     */
-    public void incrPassTeamA(View view){
-        TextView t = findViewById(R.id.Team_A_Pass);
-        passTeamA = addOne(passTeamA);
-        display(t, passTeamA);
-    }
+        switch (id) {
+            case R.id.p_team_a:
+                t = findViewById(R.id.Team_A_Score);
+                u = findViewById(R.id.Team_B_Score);
+                scoreTeamA = addOne(scoreTeamA);
+                if (scoreTeamA > scoreTeamB) {
+                    t.setTextColor(0xFF00FF00);
+                    u.setTextColor(0xFFFF0000);
+                } else if (scoreTeamA < scoreTeamB) {
+                    t.setTextColor(0xFFFF0000);
+                    u.setTextColor(0xFF00FF00);
+                } else {
+                    t.setTextColor(0xFF000000);
+                    u.setTextColor(0xFF000000);
 
-    /**
-     * Increase the passing for Team B by 1 points and display to the appropriate text view.
-     */
-    public void incrPassTeamB(View view){
-        TextView t = findViewById(R.id.Team_B_Pass);
-        passTeamB = addOne(passTeamB);
-        display(t, passTeamB);
-    }
+                }
+                display(t, scoreTeamA);
+                break;
+            case R.id.p_team_b:
+                t = findViewById(R.id.Team_B_Score);
+                u = findViewById(R.id.Team_A_Score);
+                scoreTeamB = addOne(scoreTeamB);
+                if (scoreTeamA < scoreTeamB) {
+                    t.setTextColor(0xFF00FF00);
+                    u.setTextColor(0xFFFF0000);
+                } else if (scoreTeamA > scoreTeamB) {
+                    t.setTextColor(0xFFFF0000);
+                    u.setTextColor(0xFF00FF00);
+                } else {
+                    t.setTextColor(0xFF000000);
+                    u.setTextColor(0xFF000000);
+                }
+                display(t, scoreTeamB);
+                break;
+            case R.id.ps_team_a:
+                t = findViewById(R.id.Team_A_Pass);
+                passTeamA = addOne(passTeamA);
+                display(t, passTeamA);
+                break;
+            case R.id.ps_team_b:
+                t = findViewById(R.id.Team_B_Pass);
+                passTeamB = addOne(passTeamB);
+                display(t, passTeamB);
+                break;
+            case R.id.r_team_a:
+                t = findViewById(R.id.Team_A_Rush);
+                rushTeamA = addOne(rushTeamA);
+                display(t, rushTeamA);
+                break;
+            case R.id.r_team_b:
+                t = findViewById(R.id.Team_B_Rush);
+                rushTeamB = addOne(rushTeamB);
+                display(t, rushTeamB);
+                break;
+            case R.id.reset:
+                TextView t1 = findViewById(R.id.Team_A_Score);
+                TextView t2 = findViewById(R.id.Team_B_Score);
+                TextView t3 = findViewById(R.id.Team_A_Pass);
+                TextView t4 = findViewById(R.id.Team_B_Pass);
+                TextView t5 = findViewById(R.id.Team_A_Rush);
+                TextView t6 = findViewById(R.id.Team_B_Rush);
+                //Reset all scores
+                scoreTeamA = 0;
+                scoreTeamB = 0;
+                passTeamA = 0;
+                passTeamB = 0;
+                rushTeamA = 0;
+                rushTeamB = 0;
 
-    /**
-     * Increase the rushing for Team A by 1 points and display to the appropriate text view.
-     */
-    public void incrRushTeamA(View view){
-        TextView t = findViewById(R.id.Team_A_Rush);
-        rushTeamA = addOne(rushTeamA);
-        display(t, rushTeamA);
-    }
+                //Reset text color of team points
+                t1.setTextColor(0xFF000000);
+                t2.setTextColor(0xFF000000);
 
-    /**
-     * Increase the rushing for Team B by 1 points and display to the appropriate text view.
-     */
-    public void incrRushTeamB(View view){
-        TextView t = findViewById(R.id.Team_B_Rush);
-        rushTeamB = addOne(rushTeamB);
-        display(t, rushTeamB);
-    }
-
-    /**
-     * Set all metric variables to zero and display to the appropriate text view.
-     */
-    public void reset(View view){
-        TextView t1 = findViewById(R.id.Team_A_Score);
-        TextView t2 = findViewById(R.id.Team_B_Score);
-        TextView t3 = findViewById(R.id.Team_A_Pass);
-        TextView t4 = findViewById(R.id.Team_B_Pass);
-        TextView t5 = findViewById(R.id.Team_A_Rush);
-        TextView t6 = findViewById(R.id.Team_B_Rush);
-        scoreTeamA = 0;
-        scoreTeamB = 0;
-        passTeamA = 0;
-        passTeamB = 0;
-        rushTeamA = 0;
-        rushTeamB = 0;
-        display(t1, scoreTeamA);
-        display(t2, scoreTeamB);
-        display(t3, passTeamA);
-        display(t4, passTeamB);
-        display(t5, rushTeamA);
-        display(t6, rushTeamB);
+                display(t1, scoreTeamA);
+                display(t2, scoreTeamB);
+                display(t3, passTeamA);
+                display(t4, passTeamB);
+                display(t5, rushTeamA);
+                display(t6, rushTeamB);
+            default:
+        }
     }
 
 }
